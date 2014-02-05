@@ -32,13 +32,14 @@ public class SessionController {
 
 
 	@RequestMapping(value = "/login")
-	public String login(@RequestParam(defaultValue="wait")String result, HttpSession session, Model model)
+	public String login(@RequestParam(defaultValue="wait")String result, @RequestParam(defaultValue="/dashboard/view")String url, HttpSession session, Model model)
 	{
 		HashMap<String, String> defaultParam = CommonBuilder.CommonSetter(session);
 		defaultParam = CommonBuilder.MenuSetter(defaultParam, "Login", "", "");
 		
 		model.addAllAttributes(defaultParam);
 		model.addAttribute("result", result);
+		model.addAttribute("url", url);
 		return "/session/loginForm"; 
 	}
 
@@ -50,7 +51,7 @@ public class SessionController {
 	}	
 
 	@RequestMapping(value = "/start")
-	public String start(String email, String password, HttpSession session)
+	public String start(String email, String password, String url, HttpSession session)
 	{
 		Boolean loginResult = sessionService.verify(email, password);
 
@@ -61,7 +62,7 @@ public class SessionController {
 			session.setAttribute("id", user.getId());
 			session.setAttribute("nickname", user.getNickname());
 			session.setMaxInactiveInterval(3600);
-			return "redirect:/dashboard/view";
+			return "redirect:" + url;
 		} else
 			return "redirect:login?result=failure";
 	}

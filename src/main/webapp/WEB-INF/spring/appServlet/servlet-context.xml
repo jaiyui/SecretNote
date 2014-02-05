@@ -34,12 +34,10 @@
 		<beans:property name="defaultEncoding" value="UTF-8"/>
 	</beans:bean>
 	
-	<!-- 
 	<mvc:interceptors> 
 		<mvc:interceptor>
-			<mvc:mapping path="/project/*" />
-			<beans:bean class="com.wemakeprice.dist.certification.CommonSession" />
+			<mvc:mapping path="/note/*" />
+			<beans:bean class="net.secretnote.web.session.CommonSession" />
 		</mvc:interceptor>
 	</mvc:interceptors>
-	-->
  </beans:beans>

@@ -6,6 +6,7 @@
 <jsp:include page="/WEB-INF/views/common/commonHeader.jsp" />
 <script type="text/javascript">
 var result = "${result}";
+var url = "${url}";
 
 $(document).ready(function() {
 	$("#email").focusin(function() { if ($(this).val() == "member@whoneedhelp.com") $(this).val(""); });
@@ -14,6 +15,7 @@ $(document).ready(function() {
 	$("#password").focusin(function() { if ($(this).val() == "whoneedhelp") $(this).val(""); });
 	$("#password").focusout(function() { if ($(this).val() == "") $(this).val("whoneedhelp"); });
 	
+	$("#url").val(url);
 	if (result != "failure") $("#login_alert").hide();
 });
 </script>
@@ -28,6 +30,7 @@ $(document).ready(function() {
 	                <h2>Log In</h2>
 	            </div>
             	<form class="form-inline" action="/session/start" method="post">
+            		<input id="url" class="input-xlarge" type="hidden" value="" name="url"></input>
 	                <fieldset>
 		                <div class="alert" id="login_alert">
 		                    <strong>Error!</strong> Please enter your Id and password correctly

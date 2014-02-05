@@ -32,7 +32,7 @@ public class CommonSession extends HandlerInterceptorAdapter {
 		HttpSession session  =  request.getSession();
 		String id = (String)session.getAttribute("id");
 		if ( id == null) {	//session check
-			response.sendRedirect("/login?url=" + request.getRequestURI() + "&QueryString=" + ((request.getQueryString() != null) ? URLEncoder.encode(request.getQueryString(), "UTF-8") : ""));
+			response.sendRedirect("/session/login?url=" + request.getRequestURI() + "&QueryString=" + ((request.getQueryString() != null) ? URLEncoder.encode(request.getQueryString(), "UTF-8") : ""));
 			return false;
 		}
 		else{

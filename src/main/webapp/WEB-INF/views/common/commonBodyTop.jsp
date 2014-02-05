@@ -36,8 +36,8 @@ function setMenu()
             <a class="brand" href="/dashboard/view">Secret Note</a>
             <div class="nav-collapse">
             	<ul class="nav pull-left">
-            		<li id="menuIndex"><a href="/index/index">Home</a></li>
-            		<li id="menuAbout"><a href="/note/index">My Note</a></li>
+            		<li id="menuIndex"><a href="/dashboard/view">Home</a></li>
+            		<li id="menuNote"><a href="/note/index">My Note</a></li>
             		<li id="menuContact"><a href="/contact/index">Contact</a></li>
             	</ul>
             	<ul class="nav pull-right">
