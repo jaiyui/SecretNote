@@ -6,22 +6,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="description" content="Who Need Help PC version">
-<meta name="keywords" content="who, help, meeting, recruit, job, travel, trip">
+<meta name="description" content="Secret Diary, Exchange Diary, Co-work novel writing">
+<meta name="keywords" content="secret, diary, exchange, co-work, novel">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="favicon.png">
 <title>Secret Note</title>
-<link rel="stylesheet" media="screen" href="/css/bootstrap.css"/>
-<link rel="stylesheet" media="screen" href="/css/bootstrap-responsive.css"/>
-<link rel="stylesheet" media="screen" href="/css/style.css"/>
 <link rel="stylesheet" media="screen" href="/css/common.css"/>
+<link rel="stylesheet" media="screen" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" media="screen" href="/css/bootstrap-theme.min.css"/>
 <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="/js/jquery-ui-1.10.3.custom.min.js"></script>
 <script type="text/javascript" src="/js/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
-<script type="text/javascript" src="/js/plugin/jquery.dg.fslide.js"></script>
-<script type="text/javascript" src="/js/plugin/jquery.dg.highlight.js"></script>
-
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
 </script>

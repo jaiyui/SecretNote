@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="Note">
 	<insert id="create" parameterType="Note">
 		INSERT INTO note (
-			useridx, note
+			userIdx, subject, isPublic, noteType
 		) VALUES (
-			#{useridx}, #{note}
+			#{userIdx}, #{subject}, #{isPublic}, #{noteType}
 		)
  	</insert>
  	
 	<select id="read" parameterType="int" resultType="Note">
 		SELECT
-			idx, userIdx, note, regDate
+			idx, userIdx, subject, isPublic, noteType
 		FROM
 			note
 		WHERE
@@ -20,7 +21,8 @@
 
 	<update id="update" parameterType="Note">
 		UPDATE note SET
-			note = #{note}
+			subject = #{subject},
+			isPublic = #{isPublic}
 		WHERE
 			idx = #{idx}
  	</update>
@@ -31,10 +33,10 @@
  	
 	<select id="list" parameterType="HashMap" resultType="Note">
 		SELECT
-			DISTINCT note.idx as idx, userIdx, note, regDate
+			DISTINCT note.idx as idx, userIdx, subject, isPublic, noteType
 		FROM
 			note
-			INNER JOIN noteTags ON note.idx = noteTags.noteIdx
+			LEFT JOIN noteTags ON note.idx = noteTags.noteIdx
 		WHERE
 			userIdx = #{userIdx}
 			<if test='tag != null'>
@@ -46,7 +48,7 @@
 
 	<select id="search" parameterType="HashMap" resultType="Note">
 		SELECT
-			DISTINCT note.idx as idx, userIdx, note, regDate
+			DISTINCT note.idx as idx, userIdx, subject, isPublic, noteType
 		FROM
 			note
 			INNER JOIN noteTags ON note.idx = noteTags.noteIdx

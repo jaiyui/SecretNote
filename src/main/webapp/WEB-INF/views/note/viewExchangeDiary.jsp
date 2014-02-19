@@ -6,7 +6,6 @@
 <jsp:include page="/WEB-INF/views/common/commonHeader.jsp" />
 <script type="text/javascript">
 $(document).ready(function() {
-	$(".alert").hide();
 });
 </script>
 <body>
@@ -15,9 +14,9 @@ $(document).ready(function() {
 <div class="container">
 
 	<div class="page-header">
-	    <h2>Your Privatly Diary</h2>
+	    <h2 id="diarySubject"></h2>
 	</div>
-	
+
 	<jsp:include page="/WEB-INF/views/common/commonBodyBottom.jsp" />
 </div>
 </body>

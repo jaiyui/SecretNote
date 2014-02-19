@@ -32,7 +32,7 @@ public class SessionController {
 
 
 	@RequestMapping(value = "/login")
-	public String login(@RequestParam(defaultValue="wait")String result, @RequestParam(defaultValue="/dashboard/view")String url, HttpSession session, Model model)
+	public String login(@RequestParam(defaultValue="wait")String result, @RequestParam(defaultValue="/dashboard/view")String url, @RequestParam(defaultValue="")String queryString, HttpSession session, Model model)
 	{
 		HashMap<String, String> defaultParam = CommonBuilder.CommonSetter(session);
 		defaultParam = CommonBuilder.MenuSetter(defaultParam, "Login", "", "");
@@ -40,6 +40,7 @@ public class SessionController {
 		model.addAllAttributes(defaultParam);
 		model.addAttribute("result", result);
 		model.addAttribute("url", url);
+		model.addAttribute("queryString", queryString);
 		return "/session/loginForm"; 
 	}
 
@@ -51,7 +52,7 @@ public class SessionController {
 	}	
 
 	@RequestMapping(value = "/start")
-	public String start(String email, String password, String url, HttpSession session)
+	public String start(String email, String password, String url, String queryString, HttpSession session)
 	{
 		Boolean loginResult = sessionService.verify(email, password);
 
@@ -62,9 +63,9 @@ public class SessionController {
 			session.setAttribute("id", user.getId());
 			session.setAttribute("nickname", user.getNickname());
 			session.setMaxInactiveInterval(3600);
-			return "redirect:" + url;
+			return "redirect:" + url + "?" + queryString;
 		} else
-			return "redirect:login?result=failure";
+			return "redirect:login?result=failure&url=" + url + "&queryString=" + queryString;
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)

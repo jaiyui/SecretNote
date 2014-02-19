@@ -55,63 +55,71 @@ var SignUp = {
 	    }
 	}
 </script>
-<body>
 <jsp:include page="/WEB-INF/views/common/commonBodyTop.jsp" />
 
 <div class="container">
-
-	<div class="page-header">
-	    <h2>Register for WHO NEED HELP?</h2>
+	<div class="row">
+		<div class="page-header">
+		    <h2>Register for WHO NEED HELP?</h2>
+			<form id="Fellows" name="Fellows" role="form" onbeforesubmit="return false" method="post" action="/session/register">    
+		        <div class="form-group">
+		            <label class="control-label" for="nickname">nickname (Nick)</label>
+		            <div class="row">
+		                <div class="col-md-3"><input class="form-control" name="nickname" id="nickname" value="" type="text" /></div>                
+		                <div class="col-md-9"><p class="help-block">(required)</p></div>
+		            </div>
+		            <div class="row">
+		                <div class="alert text-danger" id="nickname_alert">
+		                    <strong>Warning!</strong> Please enter your desired user name
+		                </div>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label class="control-label" for="id">Email Address (ID)</label>
+		            <div class="row">
+		                <div class="col-md-3"><input class="form-control" name="id" id="id" value="" type="text" /></div>                
+		                <div class="col-md-9"><p class="help-block">(required)</p></div>
+		            </div>
+		            <div class="row">
+		                <div class="alert text-danger" id="id_alert">
+		                    <strong>Warning!</strong> Please enter your valid email
+		                </div>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label class="control-label" for="pwd">pwd</label>
+		            <div class="row">
+		                <div class="col-md-3"><input class="form-control" name="pwd" id="pwd" value="" type="password" /></div>                
+		                <div class="col-md-9"><p class="help-block">(required, minimum 8 and maximum 15 characters)</p></div>
+		            </div>
+		            <div class="row">
+		                <div class="alert text-danger" id="pwd_alert">
+		                    <strong>Warning!</strong> Please provide a valid pwd
+		                </div>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label class="control-label" for="repeatpwd">Repeat pwd</label>
+		            <div class="row">
+		                <div class="col-md-3"><input class="form-control" name="repeatpwd" id="repeatpwd" value="" type="password" /></div>                
+		                <div class="col-md-9"></div>
+		            </div>
+		            <div class="row">
+		                <div class="alert text-danger" id="repeatpwd_alert">
+		                    <strong>Warning!</strong> The password does not match
+		                </div>
+		            </div>
+		        </div>
+		        <div class="form-group">By signing up, you accept terms of use and privacy policy.</div>
+		        <div class="form-group">
+		            <input class="btn btn-primary btn-large" onclick="return SignUp.validate();" value="Register" type="submit" />        
+		        </div>
+			</form>
+		</div>
 	</div>
-	
-	<form id="Fellows" name="Fellows" class="form-horizontal" onbeforesubmit="return false" method="post" action="/session/register">    
-		<fieldset>
-        <div class="control-group">
-            <label class="control-label" for="nickname">nickname (Nick)</label>
-            <div class="controls">
-                <input class="input-xlarge" name="nickname" id="nickname" value="" type="text" />                
-                <p class="help-block">(required)</p>
-                <div class="alert" id="nickname_alert">
-                    <strong>Warning!</strong> Please enter your desired user name
-                </div>
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="id">Email Address (ID)</label>
-            <div class="controls">
-                <input class="input-xlarge" name="id" id="id" value="" type="text" />                
-                <p class="help-block">(required)</p>
-                <div class="alert" id="id_alert">
-                    <strong>Warning!</strong> Please enter your valid email
-                </div>
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="pwd">pwd</label>
-            <div class="controls">
-                <input class="input-xlarge" name="pwd" id="pwd" value="" type="password" />                
-                <p class="help-block">(required, minimum 8 and maximum 15 characters)</p>
-                <div class="alert" id="pwd_alert">
-                    <strong>Warning!</strong> Please provide a valid pwd
-                </div>
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="repeatpwd">Repeat pwd</label>
-            <div class="controls">
-                <input class="input-xlarge" name="repeatpwd" id="repeatpwd" value="" type="password" />                
-                <div class="alert" id="repeatpwd_alert">
-                    <strong>Warning!</strong> The password does not match
-                </div>
-            </div>
-        </div>
-        <p>By signing up, you accept terms of use and privacy policy.</p>
-        <div class="form-actions">
-            <input class="btn btn-primary btn-large" onclick="return SignUp.validate();" value="Register" type="submit" />        
-        </div>
-    </fieldset>
-	</form>
-	<jsp:include page="/WEB-INF/views/common/commonBodyBottom.jsp" />
 </div>
-</body>
+
+	
+
+<jsp:include page="/WEB-INF/views/common/commonBodyBottom.jsp" />
 <jsp:include page="/WEB-INF/views/common/commonFooter.jsp" />
