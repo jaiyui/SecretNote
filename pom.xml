@@ -224,11 +224,6 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.4</version>
                 <configuration>
-                    <webResources>
-                        <resource>
-                            <directory></directory>
-                        </resource>
-                    </webResources>
 					<encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
